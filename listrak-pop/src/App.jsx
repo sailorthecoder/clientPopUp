@@ -11,7 +11,7 @@ function App() {
         Listrak Pop-Up
       </h1>
       <div>
-      {page ? <ConfirmationPage/> : <PopUp/>}
+      {page ? <ConfirmationPage/> : <PopUp page={page} setPage={setPage}/>}
       </div>
     </div>
   )

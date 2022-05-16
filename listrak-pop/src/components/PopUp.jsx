@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 
-function PopUp() {
+function PopUp({page, setPage}) {
+
+  const handleBrowserSubmission = (e) => {
+    e.preventDefault();
+    setPage(!page);
+  }
+
   return (
     <div classname="popupbrowsercontatiner">
       <h2>
@@ -27,7 +33,7 @@ function PopUp() {
         </form>
         </div>
         <div classname="submissionbuttonbrowser">
-          <button>Sign Up</button>
+          <button onClick={handleBrowserSubmission} type="submit">Sign Up</button>
         </div>
       </div>
     </div>
