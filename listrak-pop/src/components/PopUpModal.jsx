@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
+import validator from 'validator';
 
 function PopUpModal({page, setPage}) {
   const [modal, setModal] = useState(true);
   const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState(true);
+
 
   const toggleModal = () => {
     setModal(!modal);
   };
 
   const handleBrowserSubmission = (e) => {
-    // e.preventDefault();
     setPage(!page);
   };
 
   const handleEmailAddress = (e) => {
     e.preventDefault();
       setEmail(e.target.value);
+      validateEmail(e);
   };
 
   const registerEmail = (obj) => {
@@ -31,7 +34,12 @@ function PopUpModal({page, setPage}) {
     handleBrowserSubmission();
   };
 
-  modal ? document.body.classList.add('active-modal') : document.body.classList.remove('active-modal')
+  const validateEmail = (e) => {
+    e.preventDefault();
+    return validator.isEmail(e.target.value) ? setEmailError(false) : setEmailError(true);
+  };
+
+  modal ? document.body.classList.add('active-modal') : document.body.classList.remove('active-modal');
 
   return (
     <div>
@@ -55,12 +63,14 @@ function PopUpModal({page, setPage}) {
               </div>
               <div className="emailandsubmitbrowser">
                 <div className="emailaddressformbrowser">
-                <form onSubmit={objPopulation}>
-                  <label>
-                    <input onChange={handleEmailAddress} type="text" placeholder="Email Address" required/>
-                  </label>
+                <form>
+                  <input onChange={handleEmailAddress} type="text" placeholder="Email Address" required/>
                   <div className="submissionbuttonbrowser">
-                    <button onClick={objPopulation} type="submit">Sign Up</button>
+                    {emailError || email.length <= 0 ?
+                    <div>
+                      <button disabled={true}>Sign Up</button>
+                    </div> :
+                    <button onClick={objPopulation} type="submit">Sign Up</button>}
                   </div>
                 </form>
                 </div>

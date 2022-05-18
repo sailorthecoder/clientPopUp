@@ -12,7 +12,7 @@ function ConfirmationModal({page, setPage}) {
     setPage(!page);
   };
 
-  modal ? document.body.classList.add('active-modal') : document.body.classList.remove('active-modal')
+  modal ? document.body.classList.add('active-modal') : document.body.classList.remove('active-modal');
 
   return (
     <div>
