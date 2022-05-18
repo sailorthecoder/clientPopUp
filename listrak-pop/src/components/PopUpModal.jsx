@@ -2,15 +2,34 @@ import React, { useState } from 'react';
 
 function PopUpModal({page, setPage}) {
   const [modal, setModal] = useState(true);
+  const [email, setEmail] = useState('');
 
   const toggleModal = () => {
     setModal(!modal);
   };
 
   const handleBrowserSubmission = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     setPage(!page);
-  }
+  };
+
+  const handleEmailAddress = (e) => {
+    e.preventDefault();
+      setEmail(e.target.value);
+  };
+
+  const registerEmail = (obj) => {
+    console.log(obj);
+  };
+
+  const objPopulation = (e) => {
+    e.preventDefault();
+    let dataObj = {
+      email : email
+    }
+    registerEmail(dataObj);
+    handleBrowserSubmission();
+  };
 
   modal ? document.body.classList.add('active-modal') : document.body.classList.remove('active-modal')
 
@@ -21,29 +40,29 @@ function PopUpModal({page, setPage}) {
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
             <h2>Pop Up</h2>
-            <div classname="popupbrowsercontatiner">
-              <div classname="styletextbrowser">
+            <div className="popupbrowsercontatiner">
+              <div className="styletextbrowser">
                 Get Your Style On
               </div>
-              <div classname="andsignbrowser">
+              <div className="andsignbrowser">
                 {"&"}
               </div>
-              <div classname="numberbrowser">
+              <div className="numberbrowser">
                 20
               </div>
-              <div classname="percentoffbrowser">
+              <div className="percentoffbrowser">
                 {"% OFF"}
               </div>
-              <div classname="emailandsubmitbrowser">
-                <div classname="emailaddressformbrowser">
-                <form>
+              <div className="emailandsubmitbrowser">
+                <div className="emailaddressformbrowser">
+                <form onSubmit={objPopulation}>
                   <label>
-                    <input type="email" name="email" placeholder="Email Address" required/>
+                    <input onChange={handleEmailAddress} type="text" placeholder="Email Address" required/>
                   </label>
+                  <div className="submissionbuttonbrowser">
+                    <button onClick={objPopulation} type="submit">Sign Up</button>
+                  </div>
                 </form>
-                </div>
-                <div classname="submissionbuttonbrowser">
-                  <button onClick={handleBrowserSubmission} type="submit">Sign Up</button>
                 </div>
               </div>
             </div>
