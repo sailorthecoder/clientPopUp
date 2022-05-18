@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import PopUp from './components/PopUp.jsx';
-import ConfirmationPage from './components/ConfirmationPage.jsx';
+import './App.css';
+import PopUpModal from './components/PopUpModal.jsx';
+import ConfirmationModal from './components/ConfirmationModal.jsx';
 
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
         Listrak Pop-Up
       </h1>
       <div>
-      {page ? <ConfirmationPage/> : <PopUp page={page} setPage={setPage}/>}
+        {page ? <ConfirmationModal page={page} setPage={setPage}/> : <PopUpModal page={page} setPage={setPage}/>}
       </div>
     </div>
   )
