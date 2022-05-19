@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import validator from 'validator';
+import axios from 'axios';
 
 function PopUpModal({page, setPage}) {
   const [modal, setModal] = useState(true);
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState(true);
+  const [registrantData, setRegistrantData] = useState([]);
 
+  useEffect(() => {
+    axios.get(`http://localhost:3000/sign-ups`)
+    .then(resp => {
+      setRegistrantData(resp.data);
+    })
+    .catch(err => {
+      console.log('Error in GET request for registrants')
+    })
+  }, []);
 
   const toggleModal = () => {
     setModal(!modal);
@@ -22,12 +33,22 @@ function PopUpModal({page, setPage}) {
   };
 
   const registerEmail = (obj) => {
-    console.log(obj);
+    axios.post(`http://localhost:3000/sign-ups`, obj)
+    .then(() => {
+    return axios.get(`http://localhost:3000/sign-ups`);
+      })
+    .then(resp => {
+      setRegistrantData(resp.data);
+    })
+    .catch(err => {
+      console.log('Error in the post block')
+    })
   };
 
   const objPopulation = (e) => {
     e.preventDefault();
     let dataObj = {
+      id : registrantData.length + 1,
       email : email
     }
     registerEmail(dataObj);
