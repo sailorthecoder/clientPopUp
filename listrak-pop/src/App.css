@@ -74,14 +74,12 @@ body.active-modal {
   top: 10px;
   right: 10px;
   padding: 5px 7px;
+  opacity: 1;
 }
 
 
   /* Pop Up CSS
   //////////////////////////////////////////////////////////////////////////////////////////////*/
-/* .pop-up-contatiner {
-
-} */
 
 .style-text {
   display: inline-block;
@@ -189,6 +187,37 @@ opacity: 1;
   opacity: 1;
 }
 
+  /* Confirmation CSS
+  //////////////////////////////////////////////////////////////////////////////////////////////*/
 
+.main-text-confirmation {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 65px/85px var(--unnamed-font-family-prata);
+  color: var(--unnamed-color-464646);
+  text-align: left;
+  font: normal normal normal 65px/85px Prata;
+  letter-spacing: 0px;
+  color: #464646;
+  opacity: 1;
+}
+
+.subtext-confirmation {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 14px/35px PT Sans;
+  color: var(--unnamed-color-464646);
+  text-align: left;
+  font: normal normal normal 14px/35px PT Sans;
+  letter-spacing: 0.7px;
+  color: #464646;
+  opacity: 1;
+}
+
+.cta-confirmation {
+  font: var(--unnamed-font-style-normal) normal bold 15px/16px PT Sans;
+  color: var(--unnamed-color-fd8c94);
+  text-align: center;
+  font: normal normal bold 15px/16px PT Sans;
+  letter-spacing: 3px;
+  color: #FD8C94;
+  opacity: 1;
+}
 
 

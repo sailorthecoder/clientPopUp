@@ -20,15 +20,15 @@ function ConfirmationModal({page, setPage}) {
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
-          <div className="confrimationbrowsercontatiner">
-            <div className="maintextconfirmationbrowser">
+          <div className="confrimation-contatiner">
+            <div className="main-text-confirmation">
               Just Like Old Friends
             </div>
-            <div className="subtextconfirmationbrowser">
+            <div className="subtext-confirmation">
               We'll keep you updated on any deals, news, or gossip that comes our way!
             </div>
-            <div className="ctaconfirmationbrowser">
-              <button>
+            <div>
+              <button className="cta-confirmation">
                 Go Shop!
               </button>
             </div>
