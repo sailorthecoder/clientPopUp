@@ -47,37 +47,38 @@ function PopUpModal({page, setPage}) {
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
-            <h2>Pop Up</h2>
-            <div className="popupbrowsercontatiner">
-              <div className="styletextbrowser">
+            <div className="pop-up-contatiner">
+              <div className="style-text">
                 Get Your Style On
               </div>
-              <div className="andsignbrowser">
+              <div className="and-sign">
                 {"&"}
               </div>
-              <div className="numberbrowser">
+              <div className="number">
                 20
               </div>
-              <div className="percentoffbrowser">
+              <div className="percent-off">
                 {"% OFF"}
               </div>
-              <div className="emailandsubmitbrowser">
-                <div className="emailaddressformbrowser">
+              <div className="email-and-submit">
+                <div className="email-address-form">
                 <form>
-                  <input onChange={handleEmailAddress} type="text" placeholder="Email Address" required/>
-                  <div className="submissionbuttonbrowser">
+                  <div className="email">
+                  <input className="email" onChange={handleEmailAddress} type="text" placeholder="Email Address" required/>
+                  </div>
+                  <div className="submission-button">
                     {emailError || email.length <= 0 ?
                     <div>
-                      <button disabled={true}>Sign Up</button>
+                      <button className="submit-fail" disabled={true}>Sign Up</button>
                     </div> :
-                    <button onClick={objPopulation} type="submit">Sign Up</button>}
+                    <button className="submit-success" onClick={objPopulation} type="submit">Sign Up</button>}
                   </div>
                 </form>
                 </div>
               </div>
             </div>
             <button className="close-modal" onClick={toggleModal}>
-              CLOSE
+              X
             </button>
           </div>
         </div>

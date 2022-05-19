@@ -21,9 +21,6 @@ function ConfirmationModal({page, setPage}) {
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
           <div className="confrimationbrowsercontatiner">
-            <h2>
-              Confirmation Page
-            </h2>
             <div className="maintextconfirmationbrowser">
               Just Like Old Friends
             </div>
@@ -37,7 +34,7 @@ function ConfirmationModal({page, setPage}) {
             </div>
           </div>
             <button className="close-modal" onClick={toggleModal}>
-              CLOSE
+              X
             </button>
           </div>
         </div>
